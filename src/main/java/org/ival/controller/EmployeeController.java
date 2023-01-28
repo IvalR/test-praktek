@@ -68,7 +68,7 @@ public class EmployeeController {
                     " SELECT e.id, e.name, e.manager_id" +
                     " FROM employes e" +
                     " INNER JOIN employe_tree s ON s.id = e.manager_id )" +
-                    " SELECT SUM(es.score)" +
+                    " SELECT SUM(es.score)/COUNT(es.score) as score" +
                     " FROM " +
                     " public.employee_score es " +
                     " inner join employe_tree et " +
@@ -77,7 +77,7 @@ public class EmployeeController {
             try (ResultSet resultSet = statement.getResultSet()) {
                 while (resultSet.next()) {
                     EmployeeScore employee = new EmployeeScore();
-                    employee.setScore(resultSet.getInt("sum"));
+                    employee.setScore(resultSet.getInt("score"));
                     employeeScore.add(employee);
                 }
             } catch (SQLException e) {
