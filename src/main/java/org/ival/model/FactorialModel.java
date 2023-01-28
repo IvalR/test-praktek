@@ -5,22 +5,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "factorial")
 public class FactorialModel {
-    public Integer getN() {
-        return n;
-    }
-
-    public void setN(Integer n) {
-        this.n = n;
-    }
-
-    public Integer getFactorial() {
-        return factorial;
-    }
-
-    public void setFactorial(Integer factorial) {
-        this.factorial = factorial;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -39,5 +23,22 @@ public class FactorialModel {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public Integer getN() {
+        return n;
+    }
+
+    public void setN(Integer n) {
+        this.n = n;
+    }
+
+    public Integer getFactorial() {
+        return factorial;
+    }
+
+    public void setFactorial(Integer factorial) {
+        this.factorial = factorial;
+    }
+
 
 }
